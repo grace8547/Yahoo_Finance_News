@@ -1,0 +1,16 @@
+Technology Sector Semiconductor Industry 
+url is https://finance.yahoo.com/sectors/technology/semiconductors/
+label in parameter is 11
+
+Technology Sector Computer Hardware Industry 
+url is https://finance.yahoo.com/sectors/technology/computer-hardware/
+label in parameter is 12
+
+Technology Sector Semiconductor Equipment & Materials Industry 
+url is https://finance.yahoo.com/sectors/technology/semiconductor-equipment-materials/
+label in parameter is 13
+
+Technology Sector Communication Equipment Industry 
+url is https://finance.yahoo.com/sectors/technology/communication-equipment/
+label in parameter is 14
+
