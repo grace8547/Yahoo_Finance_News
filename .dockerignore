@@ -1,0 +1,13 @@
+.git
+.agents
+.codex
+env_news
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+daily_articles
+audio
+stock_news.db
+stock_news.db-*
+.env

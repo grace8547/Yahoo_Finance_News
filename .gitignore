@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+stock_news.db
+stock_news.db-*
+audio/*.mp3
+audio/*.txt
+
+.env

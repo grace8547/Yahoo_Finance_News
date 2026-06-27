@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Stock News Podcast Generator</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="toolbar">
+        <div>
+          <h1>Stock News Briefings</h1>
+          <p>Daily source-grounded audio recaps for tracked tickers.</p>
+        </div>
+        <form id="generate-form">
+          <input id="tickers" name="tickers" value="AAPL,NVDA,MU" aria-label="Tickers" />
+          <button type="submit">Generate</button>
+        </form>
+      </section>
+
+      <section class="content">
+        <aside>
+          <h2>Episodes</h2>
+          <div id="podcasts" class="list"></div>
+        </aside>
+        <article>
+          <div id="episode" class="episode-empty">Select an episode or generate today's briefing.</div>
+        </article>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

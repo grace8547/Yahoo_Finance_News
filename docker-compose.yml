@@ -1,0 +1,46 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////data/stock_news.db
+      AUDIO_DIR: /app/audio
+      OLLAMA_ENABLED: ${OLLAMA_ENABLED:-false}
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:8b}
+      OLLAMA_TIMEOUT_SECONDS: ${OLLAMA_TIMEOUT_SECONDS:-45}
+      PIPER_MODEL_PATH: /app/voices/en_US-lessac-medium.onnx
+      DEFAULT_TICKERS: ${DEFAULT_TICKERS:-AAPL,NVDA,MU}
+      NEWS_LIMIT: ${NEWS_LIMIT:-12}
+    volumes:
+      - app-data:/data
+      - ./audio:/app/audio
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  ollama-pull:
+    image: ollama/ollama:latest
+    profiles: ["setup"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    command: ["pull", "${OLLAMA_MODEL:-qwen3:8b}"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+
+volumes:
+  app-data:
+  ollama-models:
